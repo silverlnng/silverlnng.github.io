@@ -104,11 +104,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Silverlnng"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  bio              : "게임개발을 위해 공부하고 기록하는 블로그입니다"
+  location         : "South Korea"
+  email            : "silverlnng0721@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
