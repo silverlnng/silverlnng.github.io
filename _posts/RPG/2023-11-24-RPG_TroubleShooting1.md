@@ -11,4 +11,8 @@ sidebar:
 
 # PreInitializeComponents
 
-액터의 수명주기
+액터의 수명주기   
+https://docs.unrealengine.com/4.27/ko/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/ActorLifecycle/
+
+   
+   
