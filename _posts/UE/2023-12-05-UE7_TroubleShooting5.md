@@ -55,4 +55,5 @@ GetHitResultUnderCursor 가 탐지하는 ECollisionChannel 을 ECC_Visibility으
 실제로 선택해야되는 mesh에 대해서는 ECC_Visibility에 대한 Traca Response을 block으로 설정
    
 boxcomponent도 기본적으로 rendering-visible이 true로 설정되어있다.
-boxcomponent는 화면에서 그려지지않아 ECC_Visibility에 대해서 반응이 될꺼라 생각을 못했던게 문제였다.
+boxcomponent는 화면에서 그려지지않아 ECC_Visibility에 대해서 반응이 될꺼라 생각을 못했던게 문제였다.   
+문제 해결을 위해서 내가 의도한 선택되게 할 물체 와 실제로 (의도와 다르게) 선택되는 물체가 무엇인지를 정확하게 구별하고 어떤 연관성이 있는지 판단하기.
