@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
     // 2.1. id가 magnific인 경우에만 magnific-popup 적용.
+    // ==> '.page__content img[id="magnific"]'
+    // 모든 이미지인 경우 [id="magnific"] 를 지우기 
+    
     $('.page__content img').wrap( function(){
 		
         // 2.2. magnific-popup 옵션 설정.
