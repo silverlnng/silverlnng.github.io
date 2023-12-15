@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "자료구조Study2_더블 링크드 리스트"
+title:  "자료구조Study6_버블,삽입 정렬"
 categories: DataStructure
 tag: [DataStructure]
 toc: true
@@ -10,5 +10,5 @@ sidebar:
 ---
 
 
-# 더블 링크드 리스트
+# 이차원 리스트
 
