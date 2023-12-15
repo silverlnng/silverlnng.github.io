@@ -6,7 +6,7 @@ tag: [DataStructure]
 toc: true
 toc_sticky: true
 sidebar:
-    nav: "counts"
+    nav: "counts"d
 ---
 
 
