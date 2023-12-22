@@ -1,7 +1,7 @@
 ---
 layout: single
 title:  "C++_DesignPattern_팩토리 패턴"
-categories: UE5
+categories: DesignPattern
 tag: [UE5]
 toc: true
 toc_sticky: true

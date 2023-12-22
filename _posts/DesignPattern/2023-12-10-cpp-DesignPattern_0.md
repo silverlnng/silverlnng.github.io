@@ -1,7 +1,7 @@
 ---
 layout: single
 title:  "C++_DesignPattern_1_전략패턴"
-categories: C++
+categories: DesignPattern
 tag: [C++]
 toc: true
 toc_sticky: true

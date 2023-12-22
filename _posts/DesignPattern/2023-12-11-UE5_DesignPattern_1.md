@@ -1,7 +1,7 @@
 ---
 layout: single
 title:  "UE5_DesignPattern_ComponentPattern"
-categories: UE5
+categories: DesignPattern
 tag: [UE5]
 toc: true
 toc_sticky: true
