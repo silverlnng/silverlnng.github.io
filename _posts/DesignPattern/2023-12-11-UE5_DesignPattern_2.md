@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "UE5_DesignPattern_ComponentPattern"
+title:  "UE5_DesignPattern_2_ComponentPattern"
 categories: DesignPattern
 tag: [UE5]
 toc: true

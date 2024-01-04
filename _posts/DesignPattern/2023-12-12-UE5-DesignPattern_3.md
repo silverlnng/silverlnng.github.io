@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "C++_DesignPattern_팩토리 패턴"
+title:  "C++_DesignPattern_3_팩토리 패턴"
 categories: DesignPattern
 tag: [UE5]
 toc: true

@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "C++_DesignPattern_커맨드 패턴"
+title:  "C++_DesignPattern_6_커맨드 패턴"
 categories: DesignPattern
 tag: [UE5]
 toc: true
