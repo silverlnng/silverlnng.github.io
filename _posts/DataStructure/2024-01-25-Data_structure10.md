@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "자료구조Study9_우선순위 큐"
+title:  "자료구조Study10_해시테이블"
 categories: DataStructure
 tag: [DataStructure]
 toc: true
@@ -9,5 +9,5 @@ sidebar:
     nav: "counts"
 ---
 
-# 우선순위 큐
+# 해시 테이블
 
