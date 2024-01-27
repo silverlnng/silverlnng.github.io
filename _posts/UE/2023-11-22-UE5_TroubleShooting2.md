@@ -24,6 +24,6 @@ PrimaryActorTick.bStartWithTickEnabled = true;
 PrimaryActorTick.bCanEverTick = true;
    
 설정이 필수다.
-
-
+<br>
+반대로 , tick을 사용할일이 없는 경우 false으로 설정한다
 
