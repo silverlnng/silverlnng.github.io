@@ -1,7 +1,7 @@
 ---
 layout: single
 title:  "원소들의 곱과 합_programmers1"
-categories: C++_programmers
+categories: C++
 tag: [C++]
 toc: true
 toc_sticky: true
