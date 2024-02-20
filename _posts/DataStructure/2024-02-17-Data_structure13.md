@@ -30,13 +30,13 @@ sidebar:
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/daa5467c-561a-4277-b504-96400d638e1a)<br>
 <br>
 
-(3)
+(3) 
 <br> 
+<img align='left' src='https://github.com/silverlnng/DatastructureStudy/assets/112385982/9bda356f-6fca-462d-9f5a-0a330309f1be'><br>
+<img align='left' src='https://github.com/silverlnng/DatastructureStudy/assets/112385982/22df3b74-c515-4cea-a254-7d6c1229e77e'><br>
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/9bda356f-6fca-462d-9f5a-0a330309f1be)<br>
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/22df3b74-c515-4cea-a254-7d6c1229e77e)<br>
-<br>
-(4) 본문의 새위치에 있는 문자 (B) = 패턴의 첫번째 문자(B) , 본문의 다음 위치에 있는 문자(A) = 패턴의 두번째 문자(A) 본문과 패턴이 일치하므로 검색 종료.
-<br>
+(4) 본문의 새위치에 있는 문자 (B) = 패턴의 첫번째 문자(B) , 본문의 다음 위치에 있는 문자(A) = 패턴의 두번째 문자(A) 본문과 패턴이 일치하므로 검색 종료.<br>
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/c8874aef-ae81-48e1-a1ea-b2a0d9ce2fa7)<br>
 
 * 본문의 길이 N , 패턴의 길이 M 이라고 했을때 최악의 경우 N*M번 비교 수행
