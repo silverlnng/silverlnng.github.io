@@ -56,7 +56,7 @@ sidebar:
 <br>
 (2) 일치했던 패턴의 문자열까지 경계를 가지고 있는지 확인하기<br>
 ->
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/5165077a-9224-43a3-91fe-1c3932b22cd9)
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/5165077a-9224-43a3-91fe-1c3932b22cd9)   
 <br>
 
 (3) 본문의 접미부 = 패턴의 접두부를 활용하기<br>
@@ -66,7 +66,7 @@ sidebar:
 (4) 패턴을 일치하는 부분문자열 길이 에서 경계의 길이 만큼 뺀것만큼 이동시키고 불일치가 발견된 곳에서 검색을 재개<br>
 ->일치하는 부분 문자열 BAABA 의 길이 (5) 에서 경계의 길이 (2)를 빼만큼 이동시키고 불일치가 발견된 5번 부터 검색을 재개
 <br>
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/7292746c-0f2b-4d86-bb54-a36cd02bbe67)
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/7292746c-0f2b-4d86-bb54-a36cd02bbe67)   
 <br>
 
 * 
