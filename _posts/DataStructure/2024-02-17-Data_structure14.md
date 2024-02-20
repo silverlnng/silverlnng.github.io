@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "자료구조Study14_문자열검색 알고리즘"
+title:  "자료구조Study14_문자열검색 알고리즘_KMP,보이어"
 categories: DataStructure
 tag: [DataStructure]
 toc: true
@@ -79,6 +79,9 @@ BAABABAA 패턴
 (1) 
 
 이동거리 = 일치 접두부의 길이 - 최대 경계 너비
+
 ## KMP 알고리즘 구현부분
 
 ## 보이어 무어 알고리즘
+
+
