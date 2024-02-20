@@ -22,21 +22,23 @@ sidebar:
 
 * 본문 : ABCABACDC , 패턴 : BA 
 
-(1) 본문의 첫번째 문자부터 패턴과 비교 . 본문의 첫번째 문자(A) =/ 패턴의 첫번째 문자(B) 이므로 다음 문자로 이동.
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/b7249a93-86fb-467c-862f-ef0cdac21851)
+(1) 본문의 첫번째 문자부터 패턴과 비교 . 본문의 첫번째 문자(A) =/ 패턴의 첫번째 문자(B) 이므로 다음 문자로 이동.<br>
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/b7249a93-86fb-467c-862f-ef0cdac21851)<br>
 <br>
 
 (2) 본문의 두번째 문자로 이동. 본문 두번째 문자 (B) = 패턴의 첫번째 문자(B) , 본문 세번째문자(C) =/ 패턴의 두번째 문자(A)이므로 본문의 다음 문자로 이동
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/daa5467c-561a-4277-b504-96400d638e1a)
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/daa5467c-561a-4277-b504-96400d638e1a)<br>
 <br>
 
-(3) 
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/9bda356f-6fca-462d-9f5a-0a330309f1be)
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/22df3b74-c515-4cea-a254-7d6c1229e77e)
+(3)
+<br> 
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/9bda356f-6fca-462d-9f5a-0a330309f1be)<br>
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/22df3b74-c515-4cea-a254-7d6c1229e77e)<br>
 <br>
 (4) 본문의 새위치에 있는 문자 (B) = 패턴의 첫번째 문자(B) , 본문의 다음 위치에 있는 문자(A) = 패턴의 두번째 문자(A) 본문과 패턴이 일치하므로 검색 종료.
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/c8874aef-ae81-48e1-a1ea-b2a0d9ce2fa7)
 <br>
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/c8874aef-ae81-48e1-a1ea-b2a0d9ce2fa7)<br>
+
 * 본문의 길이 N , 패턴의 길이 M 이라고 했을때 최악의 경우 N*M번 비교 수행
 
 
@@ -72,7 +74,7 @@ sidebar:
 <br>
 * 해시 함수 결과를 특정 값 ("q") 으로 나눈 나머지를 해시값으로 사용
 <br>
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/79331f4e-5525-4a2d-95fd-43d0a508b7e3)
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/79331f4e-5525-4a2d-95fd-43d0a508b7e3)<br>
 
 ### 예시
 <br>
@@ -84,18 +86,18 @@ q의 값 : 2147483647(int의 최대값)
 <br>
 <br>
 (1) 패턴의 해시값과 본문[0~4] 의 해시값을 구하기. 맨 처음 단계는 패턴이나 본문 모두 활용할수있는 '이전 해시값' 는 상태로  
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/9e4b7de9-6a38-4b3a-a226-47e0b1b01186)
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/9e4b7de9-6a38-4b3a-a226-47e0b1b01186)<br>
 다음의 해시함수 활용.
 <br>
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/fc548a85-4831-414a-8947-7c908043bedd)
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/fc548a85-4831-414a-8947-7c908043bedd)<br>
 <br>
 <br>
 (2) 이제는  본문[0~4]의 해시값이 있어서 활용할수 있는 단계. 
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/a71c84e1-5071-4360-9666-22085668b567)
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/a71c84e1-5071-4360-9666-22085668b567)<br>
 다음의 해시함수 사용
 <br>
 <br>
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/ec1c418e-eeb2-413c-b4f9-78d63186632b)
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/ec1c418e-eeb2-413c-b4f9-78d63186632b)<br>
 
 
 ### 카프-라빈 알고리즘 구현 부분
