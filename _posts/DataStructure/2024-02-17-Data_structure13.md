@@ -75,15 +75,15 @@ sidebar:
 <br>
 * 해시 함수 결과를 특정 값 ("q") 으로 나눈 나머지를 해시값으로 사용
 <br>
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/79331f4e-5525-4a2d-95fd-43d0a508b7e3)<br>
-
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/79331f4e-5525-4a2d-95fd-43d0a508b7e3)   
+   
 ### 예시
    
-본문:ABACCEFABADD
+본문:ABACCEFABADD   
    
-패턴:CCEFA
+패턴:CCEFA   
    
-q의 값 : 2147483647(int의 최대값)
+q의 값 : 2147483647(int의 최대값)   
    
    
 (1) 패턴의 해시값과 본문[0~4] 의 해시값을 구하기. 맨 처음 단계는 패턴이나 본문 모두 활용할수있는 '이전 해시값' 는 상태로     
