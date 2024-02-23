@@ -45,6 +45,41 @@ sidebar:
 
 ### 고지식한 검색 구현
 
+```cpp
+using namespace std;
+ 
+void search(string& pat, string txt)
+{
+    int M = pat.size();
+    int N = txt.size();
+ 
+    /* A loop to slide pat[] one by one */
+    for (int i = 0; i <= N - M; i++) 
+    {
+        int j;
+ 
+        /* For current index i, check for pattern match */
+        for (j = 0; j < M; j++)
+            if (txt[i + j] != pat[j])
+                break;
+ 
+        if (j == M) // if pat[0...M-1] = txt[i, i+1, ...i+M-1]
+            cout << "Pattern found at index " << i << endl;
+    }
+}
+ 
+// Driver's Code
+int main()
+{
+    string txt = "AABAACAADAABAAABAA";
+    string pat = "AABA";
+ 
+    // Function call
+    search(pat, txt);
+    return 0;
+}
+```
+
 
 ## 카프-라빈 알고리즘 
 <br>
@@ -74,9 +109,8 @@ sidebar:
 * 문자열의 길이가 늘어나면 해시값도 따라 커진다는 문제 -> 해시값을 일정 범위 안에 가두기
 <br>
 * 해시 함수 결과를 특정 값 ("q") 으로 나눈 나머지를 해시값으로 사용
-<br>
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/79331f4e-5525-4a2d-95fd-43d0a508b7e3)   
-   
+      
 ### 예시
    
 본문:ABACCEFABADD   
@@ -101,3 +135,119 @@ q의 값 : 2147483647(int의 최대값)
 
 ### 카프-라빈 알고리즘 구현 부분
 
+* KarpRabin 헤더파일
+   
+```cpp
+#pragma once
+#ifndef KARPRABIN_H
+#define KARPRABIN_H
+
+int KarpRabin(char* Text, int TextSize, int Start,
+    char* Pattern, int PatternSize);
+
+int Hash(char* String, int Size);
+int ReHash(char* String, int Start, int Size, int HashPrev, int Coefficient);
+#endif
+```
+
+* KarpRabin cpp 파일
+   
+```cpp
+#include "KarpRabin.h"
+#include <stdio.h>
+#include <math.h>
+
+int KarpRabin(char* Text, int TextSize, int Start, char* Pattern, int PatternSize)
+{
+    int i = 0;
+    int j = 0;
+    int Coefficient = pow(2, PatternSize - 1); 
+    // 2의 PatternSize - 1 제곱 .  함수안에서 매번 계산하는것은 효율적이지 못하다.
+    // 밖에서 변수로만들어서 계산한후 안으로 가져와서 사용하기 ! 
+
+
+    int HashText = Hash(Text, PatternSize);
+    int HashPattern = Hash(Pattern, PatternSize);
+
+    for (i = Start; i <= TextSize - PatternSize; i++)
+    {
+        HashText = ReHash(Text, i, PatternSize - 1, HashText, Coefficient);
+
+        if (HashPattern == HashText)
+        {
+            for (j = 0; j < PatternSize; j++)
+            {
+                if (Text[i + j] != Pattern[j])
+                    break;
+            }
+
+            if (j >= PatternSize)
+                return i;
+        }
+    }
+
+    return -1;
+}
+
+int Hash(char* String, int Size)    //최초한번 [0,패턴의 길이] 만큼 구하는 함수
+{
+    int i = 0;
+    int HashValue = 0;
+
+    for (i = 0; i < Size; i++)
+    {
+        HashValue = String[i] + (HashValue * 2);
+        // i = 0 , HashValue = String[0] + 0*2
+        // 
+        // i = 1 , HashValue = String[1] + String[0]*2
+
+        /* i = 2 , HashValue = String[2] + (String[1] + String[0]*2)*2
+                             = String[2] + String[1]*2 + String[0]*2*2 */
+
+        /* i = 3 , HashValue = String[3] + (String[2] + (String[1] + String[0]*2)*2)*2
+                             = String[3] + String[2]*2 + String[1]*2*2 + String[0]*2*2*2 */
+    }
+    return HashValue;
+}
+
+//Hash() 함수를 통해 (초기 해시값)을  제거된 문자 , 새롭게 추가된 문자만 이용해서 계산하는 함수 
+int ReHash(char* String, int Start, int Size, int HashPrev, int Coefficient) 
+{
+    if (Start == 0)
+        return HashPrev;
+
+    return String[Start + Size - 1] +
+        ((HashPrev - Coefficient * String[Start - 1]) * 2);
+}
+```
+* KarpRabin test 파일
+   
+```cpp
+#include <stdio.h>
+#include <string.h>
+#include "KarpRabin.h"
+#include <math.h>
+
+#define MAX_BUFFER 512
+
+int main(int argc, char** argv)
+{
+    char  Text[MAX_BUFFER] = "My name is pattern";
+    char* Pattern =(char*)"pattern";
+    int   PatternSize = 4;
+    int h0, h1, rh1;
+
+    int result = KarpRabin(Text, strlen(Text), 0, Pattern, strlen(Pattern));
+    printf("%d\n", result);
+
+    h0 = Hash(Pattern, PatternSize);
+    h1 = Hash(Pattern + 1, PatternSize);
+    rh1 = ReHash(Pattern, 1, PatternSize, h0, (int)pow(2, PatternSize - 1));
+
+    printf("h0:%d\n", h0);
+    printf("h1:%d\n", h1);
+    printf("rh1:%d\n", rh1);
+
+    return 0;
+}
+```

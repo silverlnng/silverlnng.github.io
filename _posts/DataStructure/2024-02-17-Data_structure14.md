@@ -33,41 +33,31 @@ sidebar:
 |BAABABAA|
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/f6314d41-a908-44b6-b2d7-19b9431f4c36)
 <br>
-| 접두부 | 접미부 |
-| :--: | :---: | 
-|      |       | 
-|  B   |  A    | 
-|  BA  | AA    |
-|  BAA | BAA   | 
-|  BAAB | ABAA   | 
-|  BAABA | BABAA   | 
-|  BAABAB | ABABAA   |
-|  BAABABA | AABABAA   | 
 <br>
 
 ### 예시
 본문:BAABAABAB
 패턴:BAABAB
 <br>
-(1) 본문과 일치했던 패턴의 문자열까지 보기<br>
--> 0~4번 문자열 (BAABA) 까지는 서로 일치. 5번 문자에서 불일치
+(1) 본문과 일치했던 패턴의 문자열까지 보기   
+-> 0~4번 문자열 (BAABA) 까지는 서로 일치. 5번 문자에서 불일치   
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/11c938d6-be4c-46b1-a733-39f0d2d295af)
 
 <br>
-(2) 일치했던 패턴의 문자열까지 경계를 가지고 있는지 확인하기<br>
+(2) 일치했던 패턴의 문자열까지 경계를 가지고 있는지 확인하기   
 ->
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/5165077a-9224-43a3-91fe-1c3932b22cd9)   
 <br>
 
-(3) 본문의 접미부 = 패턴의 접두부를 활용하기<br>
+(3) 본문의 접미부 = 패턴의 접두부를 활용하기   
 -> 본문과 패턴의 [0~4] 는 서로 일치하기 때문에 경계도 서로 같다 .  
-<br>
+   
 
-(4) 패턴을 일치하는 부분문자열 길이 에서 경계의 길이 만큼 뺀것만큼 이동시키고 불일치가 발견된 곳에서 검색을 재개<br>
+(4) 패턴을 일치하는 부분문자열 길이 에서 경계의 길이 만큼 뺀것만큼 이동시키고 불일치가 발견된 곳에서 검색을 재개   
 ->일치하는 부분 문자열 BAABA 의 길이 (5) 에서 경계의 길이 (2)를 빼만큼 이동시키고 불일치가 발견된 5번 부터 검색을 재개
-<br>
+   
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/7292746c-0f2b-4d86-bb54-a36cd02bbe67)   
-<br>
+
 
 * 
 
@@ -76,11 +66,21 @@ sidebar:
 ### 경계 정보를 미리 계산하기
 BAABABAA 패턴
 
-(1) 
+(1) 첫번째 문자부터 불일치
+
+
+(2) 2번째 문자부터 불일치
+
 
 이동거리 = 일치 접두부의 길이 - 최대 경계 너비
 
 ## KMP 알고리즘 구현부분
+
+* KarpRabin.h
+
+* KarpRabin.cpp
+
+* Test_KarpRabin.cpp
 
 ## 보이어 무어 알고리즘
 
