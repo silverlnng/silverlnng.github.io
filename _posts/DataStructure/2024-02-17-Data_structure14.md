@@ -29,7 +29,7 @@ sidebar:
     * 빈 문자열도 접두부, 접미부가 될 수 있다.
 * 경계 : 서로 일치하는 접두부와 접미부
    
-|BAABABAA|   
+<span style="font-size:150%">|BAABABAA|</span>   
    
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/f6314d41-a908-44b6-b2d7-19b9431f4c36)
 
@@ -71,10 +71,11 @@ BAABABAA 패턴
 
 
 (3) 5번째 문자에서 불일치가 일어나는 경우
-![Snipaste_2024-02-23_11-31-10](https://github.com/silverlnng/DatastructureStudy/assets/112385982/900f8703-85cd-47b1-9121-534052f91e51)
+
 
 (4)
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/ec43dd21-cecf-4089-a200-daac0c37e6d5)
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/4bd2dea3-357c-4744-8a38-6828cd99f9de)
+
 
 이동거리 = 일치 접두부의 길이 - 최대 경계 너비
 
@@ -83,19 +84,130 @@ BAABABAA 패턴
 * KarpRabin.h
    
 ```cpp
+#ifndef KNUTHMORRISPRAT_H
+#define KNUTHMORRISPRAT_H
 
+#include <stdio.h>
+
+int  KnuthMorrisPratt(char* Text, int TextSize, int Start, 
+                      char* Pattern, int PatternSize );
+
+void Preprocess( char* Pattern, int PatternSize, int* Border );
+
+#endif
 ```
 
 * KarpRabin.cpp
    
 ```cpp
+#include "KnuthMorrisPratt.h"
+#include <stdlib.h>
 
+void Preprocess( char* Pattern, int PatternSize, int* Border ) 
+{
+    int i = 0;
+    int j = -1;
+
+    Border[0] = -1;
+
+    while ( i < PatternSize )
+    {
+        while ( j > -1 && Pattern[i] != Pattern[j] )
+            j = Border[j];
+
+        i++; 
+        j++;
+
+        Border[i] = j;
+    }
+}
+
+int  KnuthMorrisPratt(char* Text, int TextSize, int Start, 
+                      char* Pattern, int PatternSize )
+{
+    int i = Start;
+    int j = 0;
+    int Position = -1;
+    
+    int* Border = (int*)calloc( PatternSize + 1, sizeof( int ) );
+
+    Preprocess( Pattern, PatternSize, Border );
+
+    while ( i < TextSize )
+    {
+        while ( j >= 0 && Text[i] != Pattern[j] )
+            {j = Border[j];}
+
+        i++;
+        j++;
+
+        if ( j == PatternSize )
+        {
+            Position = i - j;
+            break;
+        }
+    }
+
+    free( Border );
+    return Position;
+}
 ```
 
 * Test_KarpRabin.cpp
    
 ```cpp
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
 
+#include "KnuthMorrisPratt.h"
+
+#define MAX_BUFFER 512
+
+int main(int argc, char** argv)
+{
+    char* FilePath;
+    FILE* fp;
+
+    char  Text[MAX_BUFFER];
+    char* Pattern;
+    int   PatternSize = 0;
+    int   Line        = 0;
+    
+    if ( argc < 3 )
+    {
+        printf("Usage: %s <FilePath> <Pattern>\n", argv[0] );
+        return 1;
+    }
+
+    FilePath = argv[1];
+    Pattern  = argv[2];
+
+    PatternSize = strlen( Pattern );
+
+    if ( (fp = fopen( FilePath, "r"))  == NULL )
+    {
+        printf("Cannot open file:%s\n", FilePath);
+        return 1;
+    } 
+
+    while ( fgets( Text, MAX_BUFFER, fp ) != NULL )
+    {
+        int Position = 
+            KnuthMorrisPratt( Text, strlen(Text), 0, Pattern, PatternSize );
+        
+        Line++;
+
+        if ( Position >= 0 ) 
+        {
+            printf("line:%d, column:%d : %s", Line, Position+1, Text);
+        }
+    }
+
+    fclose( fp );
+
+    return 0;
+}
 ```
    
 # 보이어 무어 알고리즘
@@ -147,11 +259,44 @@ BAABABAA 패턴
 
 #### 예시: AABABA
 
-* 문자열의 5번에 있는 A : A를 경계로 가지는 다른 접미부 ABA , ABABA , AABABA
+* 문자열의 5번에 있는 A : A를 경계로 가지는 다른 접미부 ABA , ABABA , AABABA 세가지이다.   
+AABABA 는 패턴의 시작부분부터 포함하고 있어서 선택 대상에서 제외   
 
-* 접미부 BA : BA를 경계로 갖는 다른 접미부 BABA 인데, 왼쪽방향으로 확장이 가능 . ABABA 는 BA를 왼쪽으로 한칸 확장한 ABA가 경계
+이동거리 ABABA 의 시작위치는 1, A의 시작위치는 5 . 이동거리 5-1=4 입니다.
 
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/d72ae595-1d09-4713-8843-fa5d53b2f518)
+
+
+* 4에서 시작하는 접미부 BA : BA를 경계로 갖는 다른 접미부 BABA 인데, 왼쪽방향으로 확장이 가능 . ABABA 는 BA를 왼쪽으로 한칸 확장한 ABA가 경계 . 따라서 BA 의 이동거리는 0
+   
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/81c26ee2-b2f6-4b2f-9d22-219712b64b08)
+
+* 3에서 시작하는 접미부 ABA : ABA를 경계로 갖는 최대의 접미부는 ABABA입니다.
+
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/068490e8-a93b-4fe2-ad4d-3d94b2acb183)
+
+
+
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/7ffd173e-e515-45d1-bc32-2177ebe3ecef)
+
+
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/e8d9f2e9-7312-45c0-b316-016270546b7e)
+
+
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/546bcdf3-7adc-4947-9ebe-183f2d05cd99)
+
+
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/e1c7168f-e8bd-41c7-91c6-7d6e1023259a)
+
+
+
+
+
+
+* (1) 첫 번째 경우
+
+
+
 
 * (2) 두 번째 경우
     * 두 번째 경우는 가장 넓은 경계의 시작 위치가 곧 이동 거리가 됩니다. 첫 번째 경우에 대한 이동 거리는 이미 처리를 했으므로 이제 우리는 테이블 내에서 이동 거리가 0인 항목에 대해서만 처리를 하면 됩니다. 
@@ -168,5 +313,10 @@ BAABABAA 패턴
 접미부의 가장 넓은 
 경계의 시작 위치 5 3 4 5 6 6 7
 이동 거리                 5 5 5 2 5 4 1
+   
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/3e63ae23-4cf0-45aa-8c2a-6be46ba19642)
 
 테이블[6] 이후에는 이동 거리가 6으로 변경됩니다. 접미부의 가장 넓은 경계의 시작 위치[5]가 6이기 때문입니다. 하지만 이 예제 테이블에는 이동 거리가 0으로 남아있는 곳이 없으므로 이것으로 처리가 완료되었습니다.
+
+
+## 보이어 무어 구현부분
