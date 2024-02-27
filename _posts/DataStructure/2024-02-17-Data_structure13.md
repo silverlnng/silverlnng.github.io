@@ -111,7 +111,7 @@ int main()
 * 해시 함수 결과를 특정 값 ("q") 으로 나눈 나머지를 해시값으로 사용
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/79331f4e-5525-4a2d-95fd-43d0a508b7e3)      
 
----
+
 
             
 ### 예시
@@ -124,29 +124,29 @@ q의 값 : 2147483647(int의 최대값)
    
    
 (1) 패턴의 해시값과 본문[0~4] 의 해시값을 구하기. 맨 처음 단계는 패턴이나 본문 모두 활용할수있는 '이전 해시값' 는 상태로 
----
+
 
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/9e4b7de9-6a38-4b3a-a226-47e0b1b01186) 
----
+
 
 다음의 해시함수 활용.   
----
+
 
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/fc548a85-4831-414a-8947-7c908043bedd)
----
+
 
    
 (2) 이제는  본문[0~4]의 해시값이 있어서 활용할수 있는 단계. 
----
+
 
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/a71c84e1-5071-4360-9666-22085668b567)  
----
+
 
 다음의 해시함수 사용
----
+
 
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/ec1c418e-eeb2-413c-b4f9-78d63186632b)   
----
+
 
 
 ### 카프-라빈 알고리즘 구현 부분
@@ -154,6 +154,7 @@ q의 값 : 2147483647(int의 최대값)
 * KarpRabin 헤더파일
    
 ```cpp
+
 #pragma once
 #ifndef KARPRABIN_H
 #define KARPRABIN_H
@@ -164,11 +165,13 @@ int KarpRabin(char* Text, int TextSize, int Start,
 int Hash(char* String, int Size);
 int ReHash(char* String, int Start, int Size, int HashPrev, int Coefficient);
 #endif
+
 ```
 
 * KarpRabin cpp 파일
    
 ```cpp
+
 #include "KarpRabin.h"
 #include <stdio.h>
 #include <math.h>
@@ -235,10 +238,13 @@ int ReHash(char* String, int Start, int Size, int HashPrev, int Coefficient)
     return String[Start + Size - 1] +
         ((HashPrev - Coefficient * String[Start - 1]) * 2);
 }
+
 ```
+
 * KarpRabin test 파일
    
 ```cpp
+
 #include <stdio.h>
 #include <string.h>
 #include "KarpRabin.h"
@@ -266,4 +272,5 @@ int main(int argc, char** argv)
 
     return 0;
 }
+
 ```

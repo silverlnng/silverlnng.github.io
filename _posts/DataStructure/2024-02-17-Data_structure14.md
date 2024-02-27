@@ -28,12 +28,11 @@ sidebar:
 * 접미부 : 문자열의 꼬리부분
     * 빈 문자열도 접두부, 접미부가 될 수 있다.
 * 경계 : 서로 일치하는 접두부와 접미부
-<br>
-
-|BAABABAA|
+   
+|BAABABAA|   
+   
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/f6314d41-a908-44b6-b2d7-19b9431f4c36)
-<br>
-<br>
+
 
 ## 예시
 본문:BAABAABAB
@@ -59,7 +58,6 @@ sidebar:
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/7292746c-0f2b-4d86-bb54-a36cd02bbe67)   
 
 
-* 
 
 * 본문의 길이가 N일 때, 최대 N번만큼만 비교를 수행하면 본문 내에서 패턴과 일치하는 문자열의 위치를 알아낼 수 있습니다
 
@@ -83,19 +81,23 @@ BAABABAA 패턴
 ## KMP 알고리즘 구현부분
 
 * KarpRabin.h
+   
 ```cpp
 
 ```
 
 * KarpRabin.cpp
+   
 ```cpp
 
 ```
 
 * Test_KarpRabin.cpp
+   
 ```cpp
 
 ```
+   
 # 보이어 무어 알고리즘
    
 * 패턴을 오른쪽에서 왼쪽으로 비교. 이동은 왼쪽에서 오른쪽으로.
@@ -151,7 +153,7 @@ BAABABAA 패턴
 
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/81c26ee2-b2f6-4b2f-9d22-219712b64b08)
 
-*  두 번째 경우
+* (2) 두 번째 경우
     * 두 번째 경우는 가장 넓은 경계의 시작 위치가 곧 이동 거리가 됩니다. 첫 번째 경우에 대한 이동 거리는 이미 처리를 했으므로 이제 우리는 테이블 내에서 이동 거리가 0인 항목에 대해서만 처리를 하면 됩니다. 
 
 가장 넓은 경계의 시작 위치를 이동 거리로 입력할 때의 규칙은 다음과 같습니다.
