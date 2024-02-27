@@ -220,6 +220,12 @@ int main(int argc, char** argv)
 
    
 ## 나쁜 문자 이동
+   
+(1) 패턴에서 나쁜문자를찾습니다.   
+
+(2) 찾아낸패턴의 나쁜문자의 위치가 본문의 나쁜문자위치와 일치하게 패턴을 이동시킵니다.   
+
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/18eaa30a-e0fb-4f3d-a281-cc6fd91468ae)
 
 
 ## 착한 접미부 이동
@@ -239,6 +245,9 @@ int main(int argc, char** argv)
 ## 전처리 과정
 
 ### 나쁜문자 이동 테이블
+   
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/0fb010bb-79ec-47b2-976b-905cfb706f8e)
+   
 
 ### 착한접미부 이동 테이블
 
