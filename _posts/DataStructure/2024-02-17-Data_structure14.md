@@ -258,7 +258,7 @@ int main(int argc, char** argv)
 
 
 #### 예시: AABABA
-
+##### 이동거리
 * 문자열의 5번에 있는 A : A를 경계로 가지는 다른 접미부 ABA , ABABA , AABABA 세가지이다.   
 AABABA 는 패턴의 시작부분부터 포함하고 있어서 선택 대상에서 제외   
 
@@ -275,7 +275,11 @@ AABABA 는 패턴의 시작부분부터 포함하고 있어서 선택 대상에�
 
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/068490e8-a93b-4fe2-ad4d-3d94b2acb183)
 
+* 나머지 접미부들(BABA, AEABA, AABABA)은 길이가 원래 문자열 길이의 1/2보다 크기 때문
+에 경계가 될 수 없습니다. 이들의 이동 거리는 모두 0 이다.
 
+##### 접미부의 가장넓은 경계의 시작위치
+    
 
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/7ffd173e-e515-45d1-bc32-2177ebe3ecef)
 
@@ -299,24 +303,122 @@ AABABA 는 패턴의 시작부분부터 포함하고 있어서 선택 대상에�
 
 
 * (2) 두 번째 경우
-    * 두 번째 경우는 가장 넓은 경계의 시작 위치가 곧 이동 거리가 됩니다. 첫 번째 경우에 대한 이동 거리는 이미 처리를 했으므로 이제 우리는 테이블 내에서 이동 거리가 0인 항목에 대해서만 처리를 하면 됩니다. 
+    * 두 번째 경우는 가장 넓은 경계의 시작 위치가 곧 이동 거리가 됩니다. 첫 번째 경우에 대한 이동 거리는 이미 처리를 했으므로 이제 우리는 테이블 내에서 이동 거리가 0인 항목에 대해서만 패턴을 왼쪽부터 읽으면서 처리를 하면 됩니다. 
 
-가장 넓은 경계의 시작 위치를 이동 거리로 입력할 때의 규칙은 다음과 같습니다.
-(1) 첫 “접미부의 가장 넓은 경계의 시작 위치”를 이동 거리로 입력한다(위 예제에서는 5).
-(2) 경계의 너비보다 접미부가 짧아지기 전까지 나타나는 모든 경계는 동일한 이동 거리를 입력한다.
-(3) 경계의 너비보다 접미부가 짧아지면 “접미부의 시작 위치 - 1”에 있는 “접미부의 가장 넓은 경계의 시작 위치”를 이동 거리로 입력한다.
+가장 넓은 경계의 시작 위치를 이동 거리로 입력할 때의 규칙은 다음과 같습니다.         
 
-자, 패턴을 왼쪽부터 읽으면서 각 경계의 이동 거리를 입력해보겠습니다. 먼저 첫 접미부의 가장 넓은 경계의 시작 위치가 5이므로 A(테이블[0])의 이동 거리를 5로 입력합니다. 이 이동 거리는 경계의 길이가 5가 되기 전까지 계속 사용합니다. AA(테이블[1]), AAB(테이블[2]), AABAB(테이블[4]) 모두 5를 입력합니다.
+(1) 첫 “접미부의 가장 넓은 경계의 시작 위치”를 이동 거리로 입력한다(위 예제에서는 5).      
 
-접미부의 시작 위치 0 1 2 3 4 5 6
-문자열                 A A B A B A
-접미부의 가장 넓은 
-경계의 시작 위치 5 3 4 5 6 6 7
-이동 거리                 5 5 5 2 5 4 1
-   
+(2) 경계의 너비보다 접미부가 짧아지기 전까지 나타나는 모든 경계는 동일한 이동 거리를 입력한다.      
+
+(3) 경계의 너비보다 접미부가 짧아지면 “접미부의 시작 위치 - 1”에 있는 “접미부의 가장 넓은 경계의 시작 위치”를 이동 거리로 입력한다.      
+
+자, 패턴을 왼쪽부터 읽으면서 각 경계의 이동 거리를 입력해보겠습니다.    
+먼저 첫 접미부의 가장 넓은 경계의 시작 위치가 5이므로 A(테이블[0])의 이동 거리를 5로 입력합니다.   
+이 이동 거리는 경계의 길이가 5가 되기 전까지 계속 사용합니다.   
+AA(테이블[1]), AAB(테이블[2]), AABAB(테이블[4]) 모두 5를 입력합니다.   
+      
 ![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/3e63ae23-4cf0-45aa-8c2a-6be46ba19642)
 
-테이블[6] 이후에는 이동 거리가 6으로 변경됩니다. 접미부의 가장 넓은 경계의 시작 위치[5]가 6이기 때문입니다. 하지만 이 예제 테이블에는 이동 거리가 0으로 남아있는 곳이 없으므로 이것으로 처리가 완료되었습니다.
+테이블[6] 이후에는 이동 거리가 6으로 변경됩니다. 접미부의 가장 넓은 경계의 시작 위치[5]가 6이기 때문입니다.   
+하지만 이 예제 테이블에는 이동 거리가 0으로 남아있는 곳이 없으므로 이것으로 처리가 완료되었습니다.   
 
 
 ## 보이어 무어 구현부분
+
+
+* BoyerMoore.cpp
+
+```cpp
+int  BoyerMoore(char* Text, int TextSize, int Start, 
+                char* Pattern, int PatternSize )
+{
+    int BCT[128];
+    int* Suffix = (int*)calloc( PatternSize + 1, sizeof( int ) );
+    int* GST  = (int*)calloc( PatternSize + 1, sizeof( int ) );
+    int i = Start;
+    int j = 0;
+
+    int Position = -1;
+
+    BuildBCT( Pattern, PatternSize, BCT );
+    BuildGST( Pattern, PatternSize, Suffix, GST );
+    
+    while (i <= TextSize - PatternSize)
+    {
+        j = PatternSize - 1;
+
+        while ( j >= 0 && Pattern[j] == Text[i+j] ) 
+            j--;
+
+        if (j<0)
+        {
+            Position = i;
+            break;
+        }
+        else 
+        {
+            i+= Max( GST[j+1], j-BCT[ Text[i+j] ])  ;
+        }
+    }
+
+    free ( Suffix );
+    free ( GST  );
+
+    return Position;
+}
+
+```
+
+```cpp
+void BuildBCT( char* Pattern, int PatternSize, int* BCT )
+{
+    int i;
+    int j;
+
+    for ( i=0; i<128; i++ ) 
+        BCT[i]=-1;
+
+    for ( j=0; j<PatternSize; j++ )
+        BCT[ Pattern[j] ]=j;
+}
+```
+
+```cpp
+void BuildGST( char* Pattern, int PatternSize, int* Suffix, int* GST )
+{
+    /*  Case 1 */
+    int i = PatternSize;
+    int j = PatternSize + 1;
+
+    Suffix[i]=j; 
+    
+    while (i>0)
+    {
+        while (j<=PatternSize && Pattern[i-1] != Pattern[j-1])
+        {
+            if ( GST[j] == 0 ) 
+                GST[j]=j-i;
+
+            j=Suffix[j];
+        }
+
+        i--; 
+        j--;
+        
+        Suffix[i] = j;
+    }
+
+    /*  Case 2 */
+    j = Suffix[0];
+
+    for ( i = 0; i <= PatternSize; i++ )
+    {
+        if ( GST[i] == 0 ) 
+            GST[i] = j;
+
+        if ( i == j ) 
+            j = Suffix[j];
+    }
+}
+```
