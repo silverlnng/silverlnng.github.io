@@ -109,12 +109,10 @@ int main()
 * 문자열의 길이가 늘어나면 해시값도 따라 커진다는 문제 -> 해시값을 일정 범위 안에 가두기
 <br>
 * 해시 함수 결과를 특정 값 ("q") 으로 나눈 나머지를 해시값으로 사용
-![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/79331f4e-5525-4a2d-95fd-43d0a508b7e3)      
-
 <br>
+![image](https://github.com/silverlnng/DatastructureStudy/assets/112385982/79331f4e-5525-4a2d-95fd-43d0a508b7e3)      
+<br><br><br>
 
-
-            
 ### 예시
    
 본문:ABACCEFABADD   
