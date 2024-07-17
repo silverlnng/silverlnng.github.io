@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "자료구조Study12_그래프_다익스트라"
+title:  "자료구조Study12_(2)_그래프_다익스트라"
 categories: DataStructure
 tag: [DataStructure]
 toc: true
